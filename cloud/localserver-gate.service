@@ -1,0 +1,15 @@
+[Unit]
+Description=Local Server Gate — device tunnels + admin/output API + Telegram bot
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/localserver/cloud
+ExecStart=/root/localserver/cloud/venv/bin/python3 /root/localserver/cloud/main.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

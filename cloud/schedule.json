@@ -1,0 +1,51 @@
+{
+  "jobs": [
+    {
+      "name": "morning_open",
+      "cron": "0 9 * * *",
+      "enabled": false,
+      "task": {
+        "type": "open",
+        "only_if_offline": true,
+        "wait_seconds": 120,
+        "then": {
+          "type": "agent",
+          "action": "anydesk",
+          "args": {"op": "start"},
+          "timeout": 45
+        }
+      }
+    },
+    {
+      "name": "morning_rustdesk",
+      "cron": "5 9 * * *",
+      "enabled": false,
+      "if_online": true,
+      "task": {
+        "type": "agent",
+        "action": "rustdesk",
+        "args": {"op": "start"},
+        "timeout": 45
+      }
+    },
+    {
+      "name": "daily_status_ping",
+      "cron": "0 8 * * *",
+      "enabled": true,
+      "task": {
+        "type": "notify",
+        "message": "Local server daily check — use /status for details."
+      }
+    },
+    {
+      "name": "weekly_reboot",
+      "cron": "0 4 * * 0",
+      "enabled": false,
+      "task": {
+        "type": "agent",
+        "action": "reboot",
+        "timeout": 30
+      }
+    }
+  ]
+}

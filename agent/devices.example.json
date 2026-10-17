@@ -1,0 +1,16 @@
+{
+  "assignments": {
+    "Port_#0003.Hub_#0002": {
+      "role": "sms",
+      "location": "Port_#0003.Hub_#0002",
+      "port": "USB Port 3 (Hub 2)",
+      "friendly_name": "Remote NDIS Compatible Device",
+      "detect": "hub_or_pnp",
+      "hub_instance": "USB\\ROOT_HUB30\\<hub instance id>",
+      "port_number": 3
+    }
+  },
+  "wifi_dsl_ssid": "<main router Wi-Fi name>",
+  "wifi_sms_ssid": "<4G box hotspot name>",
+  "eth_adapter": "Ethernet"
+}

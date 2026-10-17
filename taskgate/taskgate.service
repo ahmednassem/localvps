@@ -1,0 +1,13 @@
+[Unit]
+Description=Task gate - routes tasks from the backend to the home workers
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/localvps/taskgate
+ExecStart=/opt/localvps/taskgate/venv/bin/uvicorn main:app --host 127.0.0.1 --port 8080
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
